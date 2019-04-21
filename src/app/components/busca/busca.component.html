@@ -1,0 +1,26 @@
+<!-- 
+    1. (5. busca.component.ts) Creamos todo el contenido para mostrar, y lo configuramos con un ngFor
+para iterar en el arreglo que configuramos en el método de búsqueda
+    2. Ahora creamos una visualización de nuestra búsqueda. Para esto primero debemos crear una
+variable de tipo string en busca.component.ts. Esa variable la utilizaremos en el callback que trabajamos
+en nuestro método de búsqueda, y lo igualamos al mismo callback con la información. Tramos la variable
+dinámica a este archivo y lo trabajamos.
+    3. Para mostrar un mensaje de que no se encontró ningún resultado, tendremos que crear una división
+con el contenido que queremos mostrar. trabajamos con el *ngIg y le damos como condición que la
+longitud del arreglo total será igual a 0, ya que significaría que no encontró nada.
+    4. Ahora crearemos un componente llamado "heroeTarjeta" con el que trabajaremos el @input para que
+el contenido sea más dinámico. Cortamos la tarjeta de heroes.component.html y la pegamos en el de la 
+heroeTarjeta recien creada.
+
+ -->
+
+<h1 class="display-4 animated fadeIn fast">Buscador <small>{{termino}}</small></h1>
+<hr>
+<div>
+    <p style="font-size: 30px;" *ngIf="heroes.length == 0">
+        No se han encontrado resultados para el término de búsqueda: {{termino}}
+    </p>
+</div>
+<div class="card-columns animated fadeIn">
+    <app-heroe-tarjeta [heroe]="heroe" [index]="heroe.idx" *ngFor="let heroe of heroes"></app-heroe-tarjeta>
+</div>

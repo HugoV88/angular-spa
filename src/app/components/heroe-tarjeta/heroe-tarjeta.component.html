@@ -1,0 +1,19 @@
+<!-- 
+    1. (4. busca.component.html) Copiamos de heroes.component.html y pegamos en este archivo
+solo el contenido del *ngFor y le quitamos el *ngFor
+    2. Creamos un objeto vacío en el heroes-tarjeta.component.ts de tipo any para que no nos 
+marque error.
+    3. Agregamos la etiqueta correspondiente a este componente en el heroes.component.html para
+mostrar el contenido, aunque solo se veran las tarjetas sin información, y le agregamos en *ngFor.
+    4. Ahora nos vamos a heroe-tarjeta.component.html.
+
+ -->
+<div class=" card ">
+    <img [src]="heroe.img " class="card-img-top " [alt]="heroe.nombre ">
+    <div class="card-body ">
+        <h5 class="card-title ">{{heroe.nombre}}</h5>
+        <p class="card-text ">{{heroe.bio}}</p>
+        <p class="card-text "><small class="text-muted ">{{heroe.aparicion}}</small></p>
+    </div>
+    <button class="btn btn-block btn-dark " (click)="verHeroe() ">Ver más...</button>
+</div>

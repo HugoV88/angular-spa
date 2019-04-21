@@ -1,0 +1,43 @@
+<!-- 
+    1. (7. app.routes.ts) Ahora vamos a crear las rutas. Para esto se debe trabajar en forma
+de arreglo ej: [routerLink]="['home']" y se sustituye por el href.
+    2. Para colocarle efectos al nav que dependan de la activación de la pestaña, se configura
+en el padre del elemento <a> que sería li, y se coloca "routerLinkActive='nombreClase'"
+    3. Podemos agregar algunos estilos en el archivo css principal para darle mas fluidez a lo
+que sería el about y el home, así que trabajamos con animaciones webkit-animation que tenemos.
+    4. Buscamos una card en el Bootstrap para colocar la imagen y descripción. Solo colocamos
+una card y personalizamos el estilo y el boton.
+    5. Ahora crearemos un servicio para traer la información, creamos el archivo "app/services/service.ts".
+    --------------------------------------------------------------------------------------------------------
+    6. (3. heroe.component.html) Para configurar nuestro motor de búsqueda, primero debemos crear
+un envento en la etiqueta donde está la búsqueda y cambiar el tipo de boton.
+    7. Para el evento escribiremos lo siguiente (keyup.enter)="BuscarHeroe(buscaTexto.value)" #buscaTexto,
+donde #buscarTexto es el alias del elemento de la caja de búsqueda.
+    8. Para crear el método que contiene el evento de búsqueda iremos al archivo navbar.component.ts
+y creamos el método.
+
+ -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="[ 'home' ]">Home</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="[ 'heroes' ]">Héroes</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="[ 'about' ]">About</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" onsubmit="return false">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" (keyup.enter)="buscarHeroe(buscador.value)" #buscador>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="buscarHeroe(buscador.value)">Search</button>
+        </form>
+    </div>
+</nav>

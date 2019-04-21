@@ -1,0 +1,26 @@
+<!-- 
+    1. (4. heroes.component.ts) En la división padre de nuestra card colocamos el "ngFor" y lo
+igualamos a la iteración de heroes.
+    2. Mediante llaves o colocando la palabra llave en corchetes colocamos el resultado de la 
+iteración y llenamos todos los campos con la información que deseamos.
+    3. Para crear contenido dinámico a cada card creamos en el agular cli "components/heroe" y borramos 
+todo lo que no necesitamos. Ademas agregamos el nuevo archivo en el archivo de rutas y en el path tendremos 
+que recibir un parámetro, así que le colocamos el id "heroe/:id". En la iteración ngFor separando 
+con coma tenemos que agregar una variable i que la igualaremos con el index.
+    4. Para configurar un boton lo podemos hacer de dos formas. Una con la etiqueta <a> colocando
+las clases y [routerLink]="['/heroe', i]", y la otra forma es directamente en el boton creando un
+evento (click)="verHeroe(i)" y creamos el método "verHeroe()" en la clase de "heroes.component.ts"
+y probamos, si sirve debemos hacer la importación del archivo rutas con '@angular/router' y extraer
+el archivo "Router".
+    5. Ahora tendremos que añadir al método creado this.router.navigate( ['/heroe', idx] );
+    6. Ahora vamos al archivo de "heroe.component.ts"
+
+ -->
+
+<h1 class="display-4 animated fadeIn fast">Héroes</h1>
+<hr>
+<div class="card-columns animated fadeIn">
+    <!-- *ngFor="let heroe of heroes; let i=index " -->
+    <app-heroe-tarjeta (seleccionarHeroe)="verHeroe($event)" [heroe]="heroe" [index]="i" *ngFor="let heroe of heroes; let i=index "></app-heroe-tarjeta>
+
+</div>

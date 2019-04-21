@@ -1,0 +1,26 @@
+<!-- 
+    1. (6. heroe.component.ts) Armamos la estructura de nuestro body html y como ya configuramos el módulo
+con las rutas, podemos colocar las variables dinámicas.
+    2. Una vez terminado nuestro body vamos a trabajar con los pipes, en este caso utilizaremos 'uppercase'
+'date: y' para que solo muestre el año.
+    3. Ahora nos vamos al navbar.component.html para configurar el motor de búsqueda.
+ -->
+
+<h1 class="animated fadeIn fast">{{ heroe.nombre | uppercase }} <small>({{heroe.aparicion | date: 'y'}})</small></h1>
+<div class="row animated fadeIn">
+    <div class="col-md-4">
+        <img [src]="heroe.img" alt="" class="img-fluid">
+        <br><br>
+        <a [routerLink]="['/heroes']" routerLinkActive="router-link-active" class="btn-info btn btn-block">Regresar</a>
+    </div>
+    <div class="col-md-8">
+        <h3>{{heroe.nombre}}</h3>
+        <hr>
+        <p>
+            {{heroe.bio}}
+        </p>
+        <div>
+            <img src=" {{ heroe.casa=='Marvel'?'assets/img/marvel.png':'assets/img/dc.png' }} " width="100" [alt]="heroe.nombre">
+        </div>
+    </div>
+</div>
